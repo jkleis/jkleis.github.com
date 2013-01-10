@@ -4,7 +4,7 @@
   <title><![CDATA[One of many]]></title>
   <link href="http://jkleis.github.com/atom.xml" rel="self"/>
   <link href="http://jkleis.github.com/"/>
-  <updated>2013-01-10T17:10:11+01:00</updated>
+  <updated>2013-01-10T17:12:40+01:00</updated>
   <id>http://jkleis.github.com/</id>
   <author>
     <name><![CDATA[Jesper Kleis]]></name>
@@ -20,7 +20,7 @@
     <id>http://jkleis.github.com/blog/2013/01/10/the-very-first-post</id>
     <content type="html"><![CDATA[<p>Finally I decided to begin blogging using markdown. Just to collect anything that I find interesting - which of course does not mean it will be interesting for anybody else.</p>
 
-<p>The blog will be written using <link rel="stylesheet" href="http://octopress.org/docs/blogging/" type="text/css" media="screen" title="octopress" charset="utf-8">, which suits my needs of writing code - and be able to jot things down in markdown.</p>
+<p>The blog will be written using <a href="http://octopress.org/docs/blogging/">Octopress</a>, which suits my needs of writing code - and be able to jot things down in markdown.</p>
 ]]></content>
   </entry>
   
