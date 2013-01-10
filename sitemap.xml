@@ -1,12 +1,16 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
+        <loc>http://jkleis.github.com/blog/2013/01/10/the-very-first-post/</loc>
+        <lastmod>2013-01-10T17:08:28+01:00</lastmod>
+    </url>
+    <url>
         <loc>http://jkleis.github.com/blog/archives/</loc>
-        <lastmod>2013-01-10T16:13:46+01:00</lastmod>
+        <lastmod>2013-01-10T17:08:28+01:00</lastmod>
     </url>
     <url>
         <loc>http://jkleis.github.com/</loc>
-        <lastmod>2013-01-10T16:13:46+01:00</lastmod>
+        <lastmod>2013-01-10T17:08:28+01:00</lastmod>
     </url>
     <url>
         <loc>http://jkleis.github.com/robots.txt</loc>
