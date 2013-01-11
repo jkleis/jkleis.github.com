@@ -85,17 +85,17 @@
   
   <p>Forskning er mange ting, men en stor del af forskning handler ofte om databogholderi og gentagen udførsel af næsten de samme opgaver. Lige præcis den slags opgaver som computere er super gode til - og mennesker er dårlige til.</p>
 
-<p>Reaktionskinetik handler om at analysere hastigheden af reaktionsforløb. Reaktionsforløb foregår typisk i flere trin (og ad flere reaktionsveje). F.eks. sker forbrændingesreaktionen hvor metan (CH4) reagerer med ilt og bliver til kulmonooxid (CO) og hydrogen (H2) ikke hvis man blot blander ilt og kul. Til gengæld kan reaktionsforløbet foregå langt hurtigere hvis man introducerer en overflade der kan hjælpe med at splitte metan (typisk ved stærk binding). Samtidig skal overfladen også frigive reaktionsprodukterne igen, hvilket gør at den ikke må binde for stærkt. Så den optimale katalysator er en der både er et komprimis der gør det let at splitte sine reaktanter på overfladen og frigive dem igem som reaktions produkter.</p>
+<p>Reaktionskinetik handler om at analysere hastigheden af reaktionsforløb. Reaktionsforløb foregår typisk i flere trin (og ad flere reaktionsveje). F.eks. sker forbrændingesreaktionen hvor metan (CH4) reagerer med ilt og bliver til kulmonooxid (CO) og hydrogen (H2) ikke hvis man blot blander ilt og metan. Til gengæld kan reaktionsforløbet foregå langt hurtigere hvis man introducerer en overflade der kan hjælpe med at splitte metan (typisk ved stærk binding af kul til overfladen). Samtidig skal overfladen også frigive reaktionsprodukterne igen, hvilket gør at den ikke må binde for stærkt. Så den optimale katalysator er et komprimis der gør det let at splitte sine reaktanter på overfladen og frigive dem igem som reaktions produkter.</p>
 
 <h3>Reaktions energier</h3>
 
-<p>Et typisk reaktionsforløb vises nedenfor - der kan både være reaktionsbarrierer (stærk indflydelse på kinetikken) og energetiske barrier i reaktionsforløbet.</p>
+<p>Et typisk reaktionsforløb vises nedenfor - der er både reaktionsbarrierer (stærk indflydelse på kinetikken) og energetiske barrier i reaktionsforløbet.</p>
 
 <p><img class="center" src="https://dl.dropbox.com/u/1599470/blog_reactionBarriers.png" title="&#34;Reaction energetics and barriers for a reaction pathway on an SOFC anode&#34; [alt]" alt="&#34;Reaction energetics and barriers for a reaction pathway on an SOFC anode&#34; [alt]"></p>
 
-<p>For at regne på kinetikken af sådanne reaktionsforløb ud, kræver det at man har reaktionsenergien af alle intermediate reaktioner, og de vigtigste  barrierer mellem reaktionstrinnene.</p>
+<p>For at regne på kinetikken af sådanne reaktionsforløb ud, kræver det at man har reaktionsenergien af alle intermediære reaktioner, og de vigtigste  barrierer mellem reaktionstrinnene.</p>
 
-<p>Typisk ligger alle ens data i et regneark, hvor man vil have energien af forskellige delkomponenter. Samle dem, lave temperaturkorrektioner og dækningskorrektion. Altsammen noget der er besværligt at holde styr på - men i princippet super enkelt.</p>
+<p>Typisk ligger alle ens data i et regneark, hvor man vil have energien af forskellige delkomponenter. Samle dem, lave temperatur og dækningskorrektioner. Altsammen noget der er besværligt at holde styr på - men i princippet super enkelt.</p>
 
 <p>I stedet kom jeg på den ide at ligge data i en database og lave en generaliseret evaluator, hvor jeg blot kunne sige</p>
 
@@ -110,7 +110,9 @@
 
 <p>Den kinetiske model, kan tage flere mulige ratebegrænsende trin (RDS). Typisk vil man bruge en eller to - i simple tilfælde er rateligningerne enkle at skrive op, men igen lette at lave fejl i. Derfor lavede matrix baseret analytisk metode der var i stand til mindst at tage hensyn til to rate begrænsende trin. (Se <a href="https://dl.dropbox.com/u/1599470/blog_kinetics.pdf">her</a> for detaljer om modellen).</p>
 
-<p>Dette gjorde at det var meget let at analysere reaktionsforløb - nedenstående viser hvordan jeg typisk ville regne en reaktionsrate ud for et reaktionsforløb.</p>
+<p>Dette gjorde at det var meget let at analysere reaktionsforløb - nedenstående viser hvordan jeg typisk ville regne en reaktionsrate ud for et reaktionsforløb - og i et let forståeligt sprog.</p>
+
+<p>Nedenfor ses et eksempel på hvor både energetik og kinetik beregnes for reaktionen.</p>
 
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
