@@ -4,7 +4,7 @@
   <title><![CDATA[En af mange]]></title>
   <link href="http://jkleis.github.com/atom.xml" rel="self"/>
   <link href="http://jkleis.github.com/"/>
-  <updated>2013-01-12T09:56:56+01:00</updated>
+  <updated>2013-01-12T12:01:51+01:00</updated>
   <id>http://jkleis.github.com/</id>
   <author>
     <name><![CDATA[Jesper Kleis]]></name>
@@ -12,5 +12,28 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Velkommen til min blog]]></title>
+    <link href="http://jkleis.github.com/blog/2013/01/12/velkommen-til-min-blog/"/>
+    <updated>2013-01-12T11:50:00+01:00</updated>
+    <id>http://jkleis.github.com/blog/2013/01/12/velkommen-til-min-blog</id>
+    <content type="html"><![CDATA[<p>Internettet er stort. Uendelig mange bloggere er derude. Nogle bliver læst, andre bliver ikke.
+For mig handler bloggen om at samle nogle af de tanker og ideer sammen som jeg har om alt og ingenting.
+Så jeg har endelig fået taget mig sammen til at sætte en blog op.</p>
+
+<p>Indtil videre indeholder bloggen kun nogle samlinger fra mit tidligere liv som <a href="research">Forsker</a>.
+Det fylder stadig en del af mit liv - så det er rart at have fået samling på det. Forhåbentlig kommer der nye indlæg, fra
+mit nye liv som udvikler.</p>
+
+<p>Jeg har også fået samlet en del af de <a href="skriblerier">skriblerier</a> som jeg har lavet igennem tiderne. Eller rettere, hovedsageligt
+fra den gang man ikke blev forstyrret af internettet og al det indhold der hele tiden bliver smidt efter en. Om internettet er godt
+eller skidt for kreativiteten - ja, det er spørgsmålet.</p>
+
+<p>Håber at i der læser med tager godt i mod bloggen - ellers er jeg blot selv tilfreds med at få samlet mine tanker et enkelt sted.</p>
+
+<p><em>Jesper Kleis</em></p>
+]]></content>
+  </entry>
   
 </feed>
