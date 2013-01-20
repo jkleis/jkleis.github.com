@@ -4,7 +4,7 @@
   <title><![CDATA[En af mange]]></title>
   <link href="http://jkleis.github.com/atom.xml" rel="self"/>
   <link href="http://jkleis.github.com/"/>
-  <updated>2013-01-20T21:39:57+01:00</updated>
+  <updated>2013-01-20T21:49:57+01:00</updated>
   <id>http://jkleis.github.com/</id>
   <author>
     <name><![CDATA[Jesper Kleis]]></name>
@@ -28,6 +28,8 @@
 &#8221;# blog Blogtitel&#8221; i indlægget - jamen, så bliver det da blogget. Lige gyldigt om jeg sidder og skriver på min iPad eller på computeren.</p>
 
 <p>Det er smart - og denne første post beviser det. Kom nu - synkroniser dig!</p>
+
+<p>Nå jo - scriptet, det kan hentest [her](https://www.dropbox.com/s/wtrunezxb3bmqum/byword_post.py]</p>
 ]]></content>
   </entry>
   
