@@ -4,7 +4,7 @@
   <title><![CDATA[En af mange]]></title>
   <link href="http://jkleis.github.com/atom.xml" rel="self"/>
   <link href="http://jkleis.github.com/"/>
-  <updated>2013-01-20T21:24:57+01:00</updated>
+  <updated>2013-01-20T21:39:57+01:00</updated>
   <id>http://jkleis.github.com/</id>
   <author>
     <name><![CDATA[Jesper Kleis]]></name>
@@ -12,6 +12,24 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Fra dovenskab til produktivitet?]]></title>
+    <link href="http://jkleis.github.com/blog/2013/01/20/fra-dovenskab-til-produktivitet/"/>
+    <updated>2013-01-20T21:39:00+01:00</updated>
+    <id>http://jkleis.github.com/blog/2013/01/20/fra-dovenskab-til-produktivitet</id>
+    <content type="html"><![CDATA[<p>Jeg er doven! Det kommer sikkert ikke som en overraskelse for dem der kender mig - men nogle gange kommer det som en overraskelse for mig selv.</p>
+
+<p>Og det kommer især som en overraskelse hvor store anstrengelser jeg gør mig for at lave ingenting.</p>
+
+<p>Helst vil jeg gøre så lidt som muligt for at gøre de ting der er svære - f.eks. at blogge. Så hvis man kan slippe for at blogge ved at lave et script der gør det super enkelt at blogge med byword fra octopress - ja, så gør man da det, gør man ikke.</p>
+
+<p>Og det er så lige hvad dagens togtur gik med - et script der læser mine byword tekster. Hvis der står
+&#8221;# blog Blogtitel&#8221; i indlægget - jamen, så bliver det da blogget. Lige gyldigt om jeg sidder og skriver på min iPad eller på computeren.</p>
+
+<p>Det er smart - og denne første post beviser det. Kom nu - synkroniser dig!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Fra Dagbog Til Blog]]></title>
