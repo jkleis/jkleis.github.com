@@ -85,118 +85,113 @@
 <time datetime="2013-01-11T11:43:00+01:00" pubdate data-updated="true">Fre, 11. Januar 2013</time></p>
   </header>
   
-  <p>Forskning er mange ting, men en stor del af forskning handler ofte om databogholderi og gentagen udførsel af næsten de samme opgaver. Lige præcis den slags opgaver som computere er super gode til - og mennesker er dårlige til.</p>
+  <p>Forskning er mange ting, men en stor del af forskning handler ofte om databogholderi og gentagen udførsel af næsten de samme opgaver. Lige præcis den slags opgaver som computere er super gode til - og mennesker er dårlige til. </p>
 
 <p>Reaktionskinetik handler om at analysere hastigheden af reaktionsforløb. Reaktionsforløb foregår typisk i flere trin (og ad flere reaktionsveje). F.eks. sker forbrændingesreaktionen hvor metan (CH4) reagerer med ilt og bliver til kulmonooxid (CO) og hydrogen (H2) ikke hvis man blot blander ilt og metan. Til gengæld kan reaktionsforløbet foregå langt hurtigere hvis man introducerer en overflade der kan hjælpe med at splitte metan (typisk ved stærk binding af kul til overfladen). Samtidig skal overfladen også frigive reaktionsprodukterne igen, hvilket gør at den ikke må binde for stærkt. Så den optimale katalysator er et komprimis der gør det let at splitte sine reaktanter på overfladen og frigive dem igem som reaktions produkter.</p>
 
-<h3>Reaktions energier</h3>
-
+<h3 id="reaktions-energier">Reaktions energier</h3>
 <p>Et typisk reaktionsforløb vises nedenfor - der er både reaktionsbarrierer (stærk indflydelse på kinetikken) og energetiske barrier i reaktionsforløbet.</p>
 
-<p><img class="center" src="https://dl.dropbox.com/u/1599470/blog_reactionBarriers.png" title="&#34;Reaction energetics and barriers for a reaction pathway on an SOFC anode&#34; [alt]" alt="&#34;Reaction energetics and barriers for a reaction pathway on an SOFC anode&#34; [alt]"></p>
+<p><img class="center" src="https://dl.dropbox.com/u/1599470/blog_reactionBarriers.png" title="&#34;Reaction energetics and barriers for a reaction pathway on an SOFC anode&#34; [alt]" alt="&#34;Reaction energetics and barriers for a reaction pathway on an SOFC anode&#34; [alt]" /></p>
 
-<p>For at regne på kinetikken af sådanne reaktionsforløb ud, kræver det at man har reaktionsenergien af alle intermediære reaktioner, og de vigtigste  barrierer mellem reaktionstrinnene.</p>
+<p>For at regne på kinetikken af sådanne reaktionsforløb ud, kræver det at man har reaktionsenergien af alle intermediære reaktioner, og de vigtigste  barrierer mellem reaktionstrinnene. </p>
 
 <p>Typisk ligger alle ens data i et regneark, hvor man vil have energien af forskellige delkomponenter. Samle dem, lave temperatur og dækningskorrektioner. Altsammen noget der er besværligt at holde styr på - men i princippet super enkelt.</p>
 
 <p>I stedet kom jeg på den ide at ligge data i en database og lave en generaliseret evaluator, hvor jeg blot kunne sige</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">E</span><span class="p">(</span><span class="s">&#39;CH4:g + 2* -&gt; CH3* + H* // CH3-H_TS*&#39;</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="python"><span class="line"><span class="n">E</span><span class="p">(</span><span class="s">&#39;CH4:g + 2* -&gt; CH3* + H* // CH3-H_TS*&#39;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>der basalt set udregner energi og relaterede egenskaber for metan der reagerer med en overflade, og går over et barriere bestemt af CH3-H_TS. Evaluatoren kan filtrere på materialer, lave brugerdefinerede korrektioner mm. Ovenstående giver så de energetiske informationer der skal indgå i den kinetiske model.</p>
 
-<h3>Kinetik</h3>
-
+<h3 id="kinetik">Kinetik</h3>
 <p>Den kinetiske model, kan tage flere mulige ratebegrænsende trin (RDS). Typisk vil man bruge en eller to - i simple tilfælde er rateligningerne enkle at skrive op, men igen lette at lave fejl i. Derfor lavede matrix baseret analytisk metode der var i stand til mindst at tage hensyn til to rate begrænsende trin. (Se <a href="https://dl.dropbox.com/u/1599470/blog_kinetics.pdf">her</a> for detaljer om modellen).</p>
 
 <p>Dette gjorde at det var meget let at analysere reaktionsforløb - nedenstående viser hvordan jeg typisk ville regne en reaktionsrate ud for et reaktionsforløb - og i et let forståeligt sprog.</p>
 
 <p>Nedenfor ses et eksempel på hvor både energetik og kinetik beregnes for reaktionen.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">R</span><span class="o">=</span><span class="n">Reactions</span><span class="o">.</span><span class="n">Reactions</span><span class="p">()</span>
-</span><span class='line'><span class="n">R</span><span class="o">.</span><span class="n">add_databases</span><span class="p">(</span><span class="s">&#39;E_DFT&#39;</span><span class="p">,</span> <span class="s">&#39;lin_rel&#39;</span><span class="p">,</span> <span class="s">&#39;BEP_rel&#39;</span><span class="p">,</span> <span class="s">&#39;shomate_rel&#39;</span><span class="p">,</span> <span class="s">&#39;vib_data&#39;</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># information used to evaluate the shomate relations and the vibrational data</span>
-</span><span class='line'><span class="n">R</span><span class="o">.</span><span class="n">add_info</span><span class="p">(</span><span class="s">&#39;p&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;CH4&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;H2&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span>
-</span><span class='line'><span class="n">R</span><span class="o">.</span><span class="n">add_info</span><span class="p">(</span><span class="s">&#39;T&#39;</span><span class="p">,</span> <span class="mi">900</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># Now add information about the reaction process</span>
-</span><span class='line'><span class="c"># First dehydrogenation of methane on the surface - here we have all the transition station</span>
-</span><span class='line'><span class="n">R</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="s">&#39;CH4:g + 2* -&gt; CH3* + H* // CH3-H_TS*&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="n">R</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;2&#39;</span><span class="p">,</span> <span class="s">&#39;CH3* + * -&gt; CH2* + H* // CH2-H_TS*&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="n">R</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;3&#39;</span><span class="p">,</span> <span class="s">&#39;CH2* + * -&gt; CH2 + H* // CH-H_TS*&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="n">R</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;4&#39;</span><span class="p">,</span> <span class="s">&#39;CH* + * -&gt; CH + H* // C-H_TS*&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="c"># Water gets dehydroganeted too - however, in this case we neglect their transition states</span>
-</span><span class='line'><span class="n">R</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;5&#39;</span><span class="p">,</span> <span class="s">&#39;H2O:g + 2* -&gt; OH* + H*&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="n">R</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;6&#39;</span><span class="p">,</span> <span class="s">&#39;OH* + * -&gt; O* + H*&#39;</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># From the oxygen and carbon we produce CO in gas form</span>
-</span><span class='line'><span class="n">R</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;7&#39;</span><span class="p">,</span> <span class="s">&#39;C* + O* -&gt; CO* +* // C-O_TS*&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="n">R</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;8&#39;</span><span class="p">,</span> <span class="s">&#39;CO* -&gt; CO:g + *&#39;</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># Finally we let hydrogen evolve from the surface</span>
-</span><span class='line'><span class="n">R</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;9&#39;</span><span class="p">,</span> <span class="s">&#39;H* + H* -&gt; H2:g + 2*&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="n">R</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;10&#39;</span><span class="p">,</span> <span class="s">&#39;H* + H* -&gt; H2:g + 2*&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="n">R</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;11&#39;</span><span class="p">,</span> <span class="s">&#39;H* + H* -&gt; H2:g + 2*&#39;</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># Only consider the 111 surface</span>
-</span><span class='line'><span class="n">R</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="s">&#39;surf&#39;</span><span class="p">,</span> <span class="s">&#39;111&#39;</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># we now collect and calculate all relevant information needed in the kinetic and energetic calculations </span>
-</span><span class='line'><span class="c"># for all the reaction steps above</span>
-</span><span class='line'><span class="n">R</span><span class="o">.</span><span class="n">collect</span><span class="p">(</span><span class="s">&#39;$lin_rel&#39;</span><span class="p">,</span> <span class="s">&#39;$G=$lin_rel+$TD_col&#39;</span><span class="p">,</span> <span class="s">&#39;$Gstan=$lin_rel+$TD_col-$TD_p-$ZPE&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="n">R</span><span class="o">.</span><span class="n">process</span><span class="p">()</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># Now we feed the calculated energetic properties into the kinetic model - where we set the rate determinant step to be reaction 1 and 7</span>
-</span><span class='line'><span class="n">kin_mod</span> <span class="o">=</span> <span class="n">Kinetics</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">RDS</span><span class="o">=</span><span class="s">&#39;1,7&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="n">kin_mod</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">C_b</span><span class="o">=-</span><span class="mf">6.4</span><span class="p">,</span> <span class="n">O_b</span><span class="o">=-</span><span class="mi">4</span><span class="p">)</span>
-</span><span class='line'><span class="c"># get the reaction rate, coverages etc, where the binding energy of carbon is -6.4 and oxygen binding energy is -4 (close to Ni)</span>
-</span><span class='line'><span class="n">kin_mod</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
+<div class="bogus-wrapper"><notextile><figure class="code"> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+<span class="line-number">25</span>
+<span class="line-number">26</span>
+<span class="line-number">27</span>
+<span class="line-number">28</span>
+<span class="line-number">29</span>
+<span class="line-number">30</span>
+<span class="line-number">31</span>
+<span class="line-number">32</span>
+<span class="line-number">33</span>
+<span class="line-number">34</span>
+<span class="line-number">35</span>
+<span class="line-number">36</span>
+<span class="line-number">37</span>
+<span class="line-number">38</span>
+<span class="line-number">39</span>
+</pre></td><td class="code"><pre><code class="python"><span class="line"><span class="n">R</span><span class="o">=</span><span class="n">Reactions</span><span class="o">.</span><span class="n">Reactions</span><span class="p">()</span>
+</span><span class="line"><span class="n">R</span><span class="o">.</span><span class="n">add_databases</span><span class="p">(</span><span class="s">&#39;E_DFT&#39;</span><span class="p">,</span> <span class="s">&#39;lin_rel&#39;</span><span class="p">,</span> <span class="s">&#39;BEP_rel&#39;</span><span class="p">,</span> <span class="s">&#39;shomate_rel&#39;</span><span class="p">,</span> <span class="s">&#39;vib_data&#39;</span><span class="p">)</span>
+</span><span class="line">
+</span><span class="line"><span class="c"># information used to evaluate the shomate relations and the vibrational data</span>
+</span><span class="line"><span class="n">R</span><span class="o">.</span><span class="n">add_info</span><span class="p">(</span><span class="s">&#39;p&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;CH4&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;H2&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span>
+</span><span class="line"><span class="n">R</span><span class="o">.</span><span class="n">add_info</span><span class="p">(</span><span class="s">&#39;T&#39;</span><span class="p">,</span> <span class="mi">900</span><span class="p">)</span>
+</span><span class="line">
+</span><span class="line"><span class="c"># Now add information about the reaction process</span>
+</span><span class="line"><span class="c"># First dehydrogenation of methane on the surface - here we have all the transition station</span>
+</span><span class="line"><span class="n">R</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="s">&#39;CH4:g + 2* -&gt; CH3* + H* // CH3-H_TS*&#39;</span><span class="p">)</span>
+</span><span class="line"><span class="n">R</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;2&#39;</span><span class="p">,</span> <span class="s">&#39;CH3* + * -&gt; CH2* + H* // CH2-H_TS*&#39;</span><span class="p">)</span>
+</span><span class="line"><span class="n">R</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;3&#39;</span><span class="p">,</span> <span class="s">&#39;CH2* + * -&gt; CH2 + H* // CH-H_TS*&#39;</span><span class="p">)</span>
+</span><span class="line"><span class="n">R</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;4&#39;</span><span class="p">,</span> <span class="s">&#39;CH* + * -&gt; CH + H* // C-H_TS*&#39;</span><span class="p">)</span>
+</span><span class="line"><span class="c"># Water gets dehydroganeted too - however, in this case we neglect their transition states</span>
+</span><span class="line"><span class="n">R</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;5&#39;</span><span class="p">,</span> <span class="s">&#39;H2O:g + 2* -&gt; OH* + H*&#39;</span><span class="p">)</span>
+</span><span class="line"><span class="n">R</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;6&#39;</span><span class="p">,</span> <span class="s">&#39;OH* + * -&gt; O* + H*&#39;</span><span class="p">)</span>
+</span><span class="line">
+</span><span class="line"><span class="c"># From the oxygen and carbon we produce CO in gas form</span>
+</span><span class="line"><span class="n">R</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;7&#39;</span><span class="p">,</span> <span class="s">&#39;C* + O* -&gt; CO* +* // C-O_TS*&#39;</span><span class="p">)</span>
+</span><span class="line"><span class="n">R</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;8&#39;</span><span class="p">,</span> <span class="s">&#39;CO* -&gt; CO:g + *&#39;</span><span class="p">)</span>
+</span><span class="line">
+</span><span class="line"><span class="c"># Finally we let hydrogen evolve from the surface</span>
+</span><span class="line"><span class="n">R</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;9&#39;</span><span class="p">,</span> <span class="s">&#39;H* + H* -&gt; H2:g + 2*&#39;</span><span class="p">)</span>
+</span><span class="line"><span class="n">R</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;10&#39;</span><span class="p">,</span> <span class="s">&#39;H* + H* -&gt; H2:g + 2*&#39;</span><span class="p">)</span>
+</span><span class="line"><span class="n">R</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;11&#39;</span><span class="p">,</span> <span class="s">&#39;H* + H* -&gt; H2:g + 2*&#39;</span><span class="p">)</span>
+</span><span class="line">
+</span><span class="line"><span class="c"># Only consider the 111 surface</span>
+</span><span class="line"><span class="n">R</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="s">&#39;surf&#39;</span><span class="p">,</span> <span class="s">&#39;111&#39;</span><span class="p">)</span>
+</span><span class="line">
+</span><span class="line"><span class="c"># we now collect and calculate all relevant information needed in the kinetic and energetic calculations </span>
+</span><span class="line"><span class="c"># for all the reaction steps above</span>
+</span><span class="line"><span class="n">R</span><span class="o">.</span><span class="n">collect</span><span class="p">(</span><span class="s">&#39;$lin_rel&#39;</span><span class="p">,</span> <span class="s">&#39;$G=$lin_rel+$TD_col&#39;</span><span class="p">,</span> <span class="s">&#39;$Gstan=$lin_rel+$TD_col-$TD_p-$ZPE&#39;</span><span class="p">)</span>
+</span><span class="line"><span class="n">R</span><span class="o">.</span><span class="n">process</span><span class="p">()</span>
+</span><span class="line">
+</span><span class="line"><span class="c"># Now we feed the calculated energetic properties into the kinetic model - where we set the rate determinant step to be reaction 1 and 7</span>
+</span><span class="line"><span class="n">kin_mod</span> <span class="o">=</span> <span class="n">Kinetics</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">RDS</span><span class="o">=</span><span class="s">&#39;1,7&#39;</span><span class="p">)</span>
+</span><span class="line"><span class="n">kin_mod</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">C_b</span><span class="o">=-</span><span class="mf">6.4</span><span class="p">,</span> <span class="n">O_b</span><span class="o">=-</span><span class="mi">4</span><span class="p">)</span>
+</span><span class="line"><span class="c"># get the reaction rate, coverages etc, where the binding energy of carbon is -6.4 and oxygen binding energy is -4 (close to Ni)</span>
+</span><span class="line"><span class="n">kin_mod</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 
   
