@@ -4,7 +4,7 @@
   <title><![CDATA[En af mange]]></title>
   <link href="http://jkleis.github.com/atom.xml" rel="self"/>
   <link href="http://jkleis.github.com/"/>
-  <updated>2013-03-24T22:20:43+01:00</updated>
+  <updated>2013-03-30T18:02:34+01:00</updated>
   <id>http://jkleis.github.com/</id>
   <author>
     <name><![CDATA[Jesper Kleis]]></name>
@@ -12,6 +12,28 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Gadusen og Prinsessen]]></title>
+    <link href="http://jkleis.github.com/blog/2013/03/30/gadusen-og-prinsessen/"/>
+    <updated>2013-03-30T18:02:00+01:00</updated>
+    <id>http://jkleis.github.com/blog/2013/03/30/gadusen-og-prinsessen</id>
+    <content type="html"><![CDATA[
+<p><img src="https://dl.dropbox.com/u/1599470/blog-gadusen-og-prinsessen.png" alt="Prinsessen og Gadusen" /></p>
+
+<p>Prinsessen var edderspændt rasende fordi Gaduesen havde lovet at bygge hende et slot førend månen stod op.</p>
+
+<p>“Og det der!”, skreg hun, “Er det virkelig alt hvad du har præsteret!”</p>
+
+<p>Prinsessen satte derefter sit sureste fjæs op.</p>
+
+<p>Gadusen  var også temmelig gnaven - for kongen havde lovet ham en en smuk og nænsom prinsesse. “Og nu”, tænkte gadusen, “sidder kongen sikkert og gnider sig i hænderne af fryd over at være kommet af med sådan en mokke!”</p>
+
+<p>Gaduser kan nemlig kun gøre deres gerning så god som den er tænkt af den der udsteder den - og det var ligesom ikke hans fejl at prinsessens tanker ikke var kønnere.</p>
+
+<p>Det var Gadusen så venlig at fortælle Prinsessen  - og det er der udtrykket en på singadusen kommer fra! </p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Verden er lille - i hvert fald i vores kvarter!]]></title>
