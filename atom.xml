@@ -4,7 +4,7 @@
   <title><![CDATA[En af mange]]></title>
   <link href="http://jkleis.github.com/atom.xml" rel="self"/>
   <link href="http://jkleis.github.com/"/>
-  <updated>2014-04-05T09:15:09+02:00</updated>
+  <updated>2014-04-05T09:19:12+02:00</updated>
   <id>http://jkleis.github.com/</id>
   <author>
     <name><![CDATA[Jesper Kleis]]></name>
@@ -23,6 +23,8 @@
 <p>Til gengæld nåede jeg at tælle til 214 inden August fik taget tøj på i morges - hvilket efter min mening er tæt på en evighed.</p>
 
 <p>Det var også her jeg tænkte, at det burde være relativt let at besvare Augusts spørgsmål - så jeg fik hacket noget forfærdeligt pythonkode sammen, der bruger den indbyggede talesynthesizer til at sige et udvalg af numrene mellem en og en million og på den baggrund estimere hvor lang tid det tager.</p>
+
+<!-- more -->
 
 <p>Her er koden - så i kan selv køre den i terminalen. Selv bruger jeg Ida som stemme - så får man det på dansk. Man kan muligvis selv tælle noget hurtigere, men det er en anden snak.</p>
 
