@@ -9,8 +9,7 @@
   <meta name="author" content="Jesper Kleis">
 
   
-  <meta name="description" content="x
-Ja - det er en af udfordringerne ved at få børn. Man får spørgsmål som man ikke rigtig kan svare på. Til gengæld nåede jeg at tælle til 214 inden &hellip;">
+  <meta name="description" content="Ja - det er en af udfordringerne ved at få børn. Man får spørgsmål som man ikke rigtig kan svare på. Til gengæld nåede jeg at tælle til 214 inden &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -74,7 +73,7 @@ Ja - det er en af udfordringerne ved at få børn. Man får spørgsmål som man 
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/04/05/far/">Far</a></h1>
+      <h1 class="entry-title"><a href="/blog/2014/04/05/far/">Far, Hvor Lang Tid Tager Det at Tælle Til en Million?</a></h1>
     
     
       <p class="meta">
@@ -97,8 +96,7 @@ Ja - det er en af udfordringerne ved at få børn. Man får spørgsmål som man 
   </header>
 
 
-  <div class="entry-content"><p>x
-Ja - det er en af udfordringerne ved at få børn. Man får spørgsmål som man ikke rigtig kan svare på.</p>
+  <div class="entry-content"><p>Ja - det er en af udfordringerne ved at få børn. Man får spørgsmål som man ikke rigtig kan svare på.</p>
 
 <p>Til gengæld nåede jeg at tælle til 214 inden August fik taget tøj på i morges - hvilket efter min mening er tæt på en evighed.</p>
 
@@ -107,36 +105,35 @@ Ja - det er en af udfordringerne ved at få børn. Man får spørgsmål som man 
 <p>Her er koden - så i kan selv køre den i terminalen. Selv bruger jeg Ida som stemme - så får man det på dansk. Man kan muligvis selv tælle noget hurtigere, men det er en anden snak.</p>
 
 <p>&#8220;` python
-import os, sys, random, time</p>
+	import os, sys, random, time</p>
 
-<p>def CountInBetween(minNum, maxNum, samplePercentage, maxSamples):
-    i = 0;</p>
+<pre><code>def CountInBetween(minNum, maxNum, samplePercentage, maxSamples):
+    i = 0;
 
-<pre><code>t0 = time.time()
+    t0 = time.time()
 
-sampleSize = round((maxNum - minNum) * (samplePercentage / 100.0))
-sampleSize = min(sampleSize, maxSamples)
+    sampleSize = round((maxNum - minNum) * (samplePercentage / 100.0))
+    sampleSize = min(sampleSize, maxSamples)
 
-while (i&lt; sampleSize):
-    i += 1
-    sample = int(random.uniform(minNum, maxNum))
-    os.system("say " + str(sample))
+    while (i&lt; sampleSize):
+        i += 1
+        sample = int(random.uniform(minNum, maxNum))
+        os.system("say " + str(sample))
     
-loopTime = time.time() - t0
-totalEstimate = loopTime * (maxNum - minNum) / sampleSize 
-return int(round(totalEstimate))
-</code></pre>
+    loopTime = time.time() - t0
+    totalEstimate = loopTime * (maxNum - minNum) / sampleSize 
+    return int(round(totalEstimate))
 
-<p>minNum = 1
+minNum = 1
 maxNum = 10
-totalTime = 0;  <br />
+totalTime = 0;    
 while (maxNum &lt; 1000000000000):
     totalTime += CountInBetween(minNum, maxNum, 10, 10)
     totalDays = totalTime / (3600 * 24)
-    print “Total estimat for at taelle til %i er %i sekunder (%i dage)” % (maxNum, totalTime, totalDays)
+    print "Total estimat for at taelle til %i er %i sekunder (%i dage)" % (maxNum, totalTime, totalDays)
     minNum = maxNum + 1;
-    maxNum *= 10
-&#8220;`</p>
+    maxNum *= 10 ```
+</code></pre>
 </div>
   
   
@@ -443,7 +440,7 @@ eller skidt for kreativiteten - ja, det er spørgsmålet. </p>
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2014/04/05/far/">Far</a>
+        <a href="/blog/2014/04/05/far/">Far, hvor lang tid tager det at tælle til en million?</a>
       </li>
     
       <li class="post">
