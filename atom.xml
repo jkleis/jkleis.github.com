@@ -4,7 +4,7 @@
   <title><![CDATA[En af mange]]></title>
   <link href="http://jkleis.github.com/atom.xml" rel="self"/>
   <link href="http://jkleis.github.com/"/>
-  <updated>2014-04-05T08:48:33+02:00</updated>
+  <updated>2014-04-05T08:49:46+02:00</updated>
   <id>http://jkleis.github.com/</id>
   <author>
     <name><![CDATA[Jesper Kleis]]></name>
@@ -26,10 +26,9 @@
 
 <p>Her er koden - så i kan selv køre den i terminalen. Selv bruger jeg Ida som stemme - så får man det på dansk. Man kan muligvis selv tælle noget hurtigere, men det er en anden snak.</p>
 
-<p>&#8220;` python
-	import os, sys, random, time</p>
+<pre><code>import os, sys, random, time
 
-<pre><code>def CountInBetween(minNum, maxNum, samplePercentage, maxSamples):
+def CountInBetween(minNum, maxNum, samplePercentage, maxSamples):
     i = 0;
 
     t0 = time.time()
@@ -54,8 +53,9 @@ while (maxNum &lt; 1000000000000):
     totalDays = totalTime / (3600 * 24)
     print "Total estimat for at taelle til %i er %i sekunder (%i dage)" % (maxNum, totalTime, totalDays)
     minNum = maxNum + 1;
-    maxNum *= 10 ```
+    maxNum *= 10
 </code></pre>
+
 ]]></content>
   </entry>
   
