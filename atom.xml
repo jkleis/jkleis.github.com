@@ -4,7 +4,7 @@
   <title><![CDATA[En af mange]]></title>
   <link href="http://jkleis.github.com/atom.xml" rel="self"/>
   <link href="http://jkleis.github.com/"/>
-  <updated>2014-04-05T09:24:34+02:00</updated>
+  <updated>2014-04-05T09:28:16+02:00</updated>
   <id>http://jkleis.github.com/</id>
   <author>
     <name><![CDATA[Jesper Kleis]]></name>
@@ -120,9 +120,9 @@ while (maxNum &lt; 1000000000000):
       <td style="text-align: right">565 960.6</td>
     </tr>
     <tr>
-      <td style="text-align: right">100 000 000 000</td>
-      <td style="text-align: right">534 132 648 994</td>
-      <td style="text-align: right">6 182 090.8</td>
+      <td style="text-align: right">- 100 000 000 000 -</td>
+      <td style="text-align: right">-  534 132 648 994  -</td>
+      <td style="text-align: right">- 6 182 090.8  -</td>
     </tr>
   </tbody>
 </table>
