@@ -9,7 +9,7 @@
   <meta name="author" content="Jesper Kleis">
 
   
-  <meta name="description" content="Det er godt et halvt år siden jeg fik startet min blog. Blogindlæggene er begrænsede, men jeg føler selv at jeg er rimeligt godt med hvad angår &hellip;">
+  <meta name="description" content="Ja - det er en af udfordringerne ved at få børn. Man får spørgsmål som man ikke rigtig kan svare på. Til gengæld nåede jeg at tælle til 214 inden &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +67,80 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/04/05/far/">Far</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-05T08:31:00+02:00" pubdate data-updated="true">Lør,  5. April 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Ja - det er en af udfordringerne ved at få børn. Man får spørgsmål som man ikke rigtig kan svare på.</p>
+
+<p>Til gengæld nåede jeg at tælle til 214 inden August fik taget tøj på i morges - hvilket efter min mening er tæt på en evighed.</p>
+
+<p>Det var også her jeg tænkte, at det burde være relativt let at besvare Augusts spørgsmål - så jeg fik hacket noget forfærdeligt pythonkode sammen, der bruger den indbyggede talesynthesizer til at sige et udvalg af numrene mellem en og en million og på den baggrund estimere hvor lang tid det tager.</p>
+
+<p>Her er koden - så i kan selv køre den i terminalen. Selv bruger jeg Ida som stemme - så får man det på dansk. Man kan muligvis selv tælle noget hurtigere, men det er en anden snak.</p>
+
+<p>&#8220;`python
+import os, sys, random, time</p>
+
+<p>def CountInBetween(minNum, maxNum, samplePercentage, maxSamples):
+    i = 0;</p>
+
+<pre><code>t0 = time.time()
+
+sampleSize = round((maxNum - minNum) * (samplePercentage / 100.0))
+sampleSize = min(sampleSize, maxSamples)
+
+while (i&lt; sampleSize):
+    i += 1
+    sample = int(random.uniform(minNum, maxNum))
+    os.system("say " + str(sample))
+    
+loopTime = time.time() - t0
+totalEstimate = loopTime * (maxNum - minNum) / sampleSize 
+return int(round(totalEstimate))
+</code></pre>
+
+<p>minNum = 1
+maxNum = 10
+totalTime = 0;  <br />
+while (maxNum &lt; 1000000000000):
+    totalTime += CountInBetween(minNum, maxNum, 10, 10)
+    totalDays = totalTime / (3600 * 24)
+    print “Total estimat for at taelle til %i er %i sekunder (%i dage)” % (maxNum, totalTime, totalDays)
+    minNum = maxNum + 1;
+    maxNum *= 10
+&#8220;`</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -367,6 +441,10 @@ eller skidt for kreativiteten - ja, det er spørgsmålet. </p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/04/05/far/">Far</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/07/26/om-det-at-vaere-speciel/">Om det at være speciel</a>
       </li>
     
@@ -380,10 +458,6 @@ eller skidt for kreativiteten - ja, det er spørgsmålet. </p>
     
       <li class="post">
         <a href="/blog/2013/01/20/fra-dovenskab-til-produktivitet/">Fra dovenskab til produktivitet?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/01/13/fra-dagbog-til-blog/">Fra Dagbog Til Blog</a>
       </li>
     
   </ul>
@@ -416,7 +490,7 @@ eller skidt for kreativiteten - ja, det er spørgsmålet. </p>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Jesper Kleis -
+  Copyright &copy; 2014 - Jesper Kleis -
   <span class="credit">Genereret ved hjælp af <a href="http://octopress.org">Octopress</a></span>
 </p>
 
