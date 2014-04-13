@@ -103,35 +103,63 @@
 
 <p>Her er koden - så i kan selv køre den i terminalen. Selv bruger jeg Ida som stemme - så får man det på dansk. Man kan muligvis selv tælle noget hurtigere, men det er en anden snak.</p>
 
-<pre><code>import os, sys, random, time
-
-def CountInBetween(minNum, maxNum, samplePercentage, maxSamples):
-    i = 0;
-
-    t0 = time.time()
-
-    sampleSize = round((maxNum - minNum) * (samplePercentage / 100.0))
-    sampleSize = min(sampleSize, maxSamples)
-
-    while (i&lt; sampleSize):
-        i += 1
-        sample = int(random.uniform(minNum, maxNum))
-        os.system("say " + str(sample))
-    
-    loopTime = time.time() - t0
-    totalEstimate = loopTime * (maxNum - minNum) / sampleSize 
-    return int(round(totalEstimate))
-
-minNum = 1
-maxNum = 10
-totalTime = 0;    
-while (maxNum &lt; 1000000000000):
-    totalTime += CountInBetween(minNum, maxNum, 10, 10)
-    totalDays = totalTime / (3600 * 24)
-    print "Total estimat for at taelle til %i er %i sekunder (%i dage)" % (maxNum, totalTime, totalDays)
-    minNum = maxNum + 1;
-    maxNum *= 10
-</code></pre>
+<div class="bogus-wrapper"><notextile><figure class="code"> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+<span class="line-number">25</span>
+<span class="line-number">26</span>
+<span class="line-number">27</span>
+<span class="line-number">28</span>
+</pre></td><td class="code"><pre><code class="python"><span class="line"><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">random</span><span class="o">,</span> <span class="nn">time</span>
+</span><span class="line">
+</span><span class="line"><span class="k">def</span> <span class="nf">CountInBetween</span><span class="p">(</span><span class="n">minNum</span><span class="p">,</span> <span class="n">maxNum</span><span class="p">,</span> <span class="n">samplePercentage</span><span class="p">,</span> <span class="n">maxSamples</span><span class="p">):</span>
+</span><span class="line">    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class="line">
+</span><span class="line">    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</span><span class="line">
+</span><span class="line">    <span class="n">sampleSize</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="n">maxNum</span> <span class="o">-</span> <span class="n">minNum</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">samplePercentage</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">))</span>
+</span><span class="line">    <span class="n">sampleSize</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">sampleSize</span><span class="p">,</span> <span class="n">maxSamples</span><span class="p">)</span>
+</span><span class="line">
+</span><span class="line">    <span class="k">while</span> <span class="p">(</span><span class="n">i</span><span class="o">&lt;</span> <span class="n">sampleSize</span><span class="p">):</span>
+</span><span class="line">        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span class="line">        <span class="n">sample</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">minNum</span><span class="p">,</span> <span class="n">maxNum</span><span class="p">))</span>
+</span><span class="line">        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">&quot;say &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sample</span><span class="p">))</span>
+</span><span class="line">
+</span><span class="line">    <span class="n">loopTime</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span>
+</span><span class="line">    <span class="n">totalEstimate</span> <span class="o">=</span> <span class="n">loopTime</span> <span class="o">*</span> <span class="p">(</span><span class="n">maxNum</span> <span class="o">-</span> <span class="n">minNum</span><span class="p">)</span> <span class="o">/</span> <span class="n">sampleSize</span>
+</span><span class="line">    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">totalEstimate</span><span class="p">))</span>
+</span><span class="line">
+</span><span class="line"><span class="n">minNum</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span class="line"><span class="n">maxNum</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span class="line"><span class="n">totalTime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class="line"><span class="k">while</span> <span class="p">(</span><span class="n">maxNum</span> <span class="o">&lt;</span> <span class="mi">1000000000000</span><span class="p">):</span>
+</span><span class="line">    <span class="n">totalTime</span> <span class="o">+=</span> <span class="n">CountInBetween</span><span class="p">(</span><span class="n">minNum</span><span class="p">,</span> <span class="n">maxNum</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</span><span class="line">    <span class="n">totalDays</span> <span class="o">=</span> <span class="n">totalTime</span> <span class="o">/</span> <span class="p">(</span><span class="mi">3600</span> <span class="o">*</span> <span class="mi">24</span><span class="p">)</span>
+</span><span class="line">    <span class="k">print</span> <span class="s">&quot;Total estimat for at taelle til </span><span class="si">%i</span><span class="s"> er </span><span class="si">%i</span><span class="s"> sekunder (</span><span class="si">%i</span><span class="s"> dage)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">maxNum</span><span class="p">,</span> <span class="n">totalTime</span><span class="p">,</span> <span class="n">totalDays</span><span class="p">)</span>
+</span><span class="line">    <span class="n">minNum</span> <span class="o">=</span> <span class="n">maxNum</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class="line">    <span class="n">maxNum</span> <span class="o">*=</span> <span class="mi">10</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>Og hvad er så resultatet?</p>
 
